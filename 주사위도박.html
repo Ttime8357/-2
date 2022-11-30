@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+ <head>update 22.11.23 (made by Ttime8357) 
+  <meta charset="UTF-8">
+ </head>
+ <body>
+
+<h2>주사위 도박</h2>
+
+<script>
+
+function dice(maxNumber){
+  return Math.floor(Math.random()*maxNumber)+1;
+}
+
+
+function printDice(name, num){
+  alert(name+"의 주사위는 "+num+"입니다.");
+}
+
+
+function printWinner(name){
+  alert(name+"의 승리입니다.");
+}
+
+
+function printDraw(){
+  alert("비겼습니다.");
+}
+
+
+
+  alert("게임을 시작하시겠습니까?");
+  var price;
+  var input;
+  input = prompt ("배팅할 금액을 입력하세요(최대 100000원 입니다 / 숫자로만 입력");
+  price=parseInt(input);
+    if (price>100000){
+        alert("잘못된 배팅입니다 다시 배팅하세요")
+       input = prompt ("배팅할 금액을 입력하세요(최대 100000원 입니다 / 숫자로만 입력");
+        price=parseInt(input); 
+    }
+
+  var computerName = "컴퓨터";
+  var yourName = "당신";
+
+  var computerDice = dice(6); 
+  printDice(computerName, computerDice); 
+
+  var yourDice = dice(6); 
+  printDice(yourName, yourDice); 
+
+  if(computerDice > yourDice){ 
+    printWinner(computerName); 
+    alert("도박에 실패했습니다. 배팅한 돈을 모두 잃으셨습니다.");
+    alert("다시 시작할려면 새로고침하세요");
+  }
+  else if(computerDice < yourDice){ 
+    printWinner(yourName);
+    alert("도박에 승리했습니다 "+ price*2 +"원을 획득했습니다");
+    alert("다시 시작할려면 새로고침하세요");
+  }
+  else { 
+    printDraw();
+    alert("다시 시작할려면 새로고침하세요");
+  }
+
+</script>
+<script>
+   
+</script>
+  reference - https://www.a-mean-blog.com/
+ </body>
+</html>
